@@ -1,47 +1,15 @@
 fileFormatVersion: 2
-guid: e5ab2748b2546fd40b640c0e09ee4bf5
-timeCreated: 1480018432
+guid: 6dc881fb08f19d940af01eed8804f77e
+timeCreated: 1480027358
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: Cylinder_001
-    100004: Cylinder_002
-    100006: Cylinder_003
-    100008: Torus
-    100010: Torus_001
-    100012: //RootNode
-    100014: placeholder
-    400000: Cylinder
-    400002: Cylinder_001
-    400004: Cylinder_002
-    400006: Cylinder_003
-    400008: Torus
-    400010: Torus_001
-    400012: //RootNode
-    400014: placeholder
-    2300000: Cylinder
-    2300002: Cylinder_001
-    2300004: Cylinder_002
-    2300006: Cylinder_003
-    2300008: Torus
-    2300010: Torus_001
-    2300012: placeholder
-    3300000: Cylinder
-    3300002: Cylinder_001
-    3300004: Cylinder_002
-    3300006: Cylinder_003
-    3300008: Torus
-    3300010: Torus_001
-    3300012: placeholder
-    4300000: Torus_001
-    4300002: Cylinder_003
-    4300004: Cylinder_002
-    4300006: Cylinder_001
-    4300008: Cylinder
-    4300010: Torus
-    4300012: placeholder
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
     7400000: Default Take
     9500000: //RootNode
   materials:
