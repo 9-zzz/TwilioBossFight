@@ -43,7 +43,10 @@ public class PlayerMovement : MonoBehaviour
             canJump = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(KeyCode.UpArrow) && canJump == false)
+            rb.velocity =  Vector3.MoveTowards(rb.velocity, new Vector3(rb.velocity.x, 0, rb.velocity.z), Time.deltaTime * 3);
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
             transform.localScale = Vector3.one;
 
         if (Input.GetKeyDown(KeyCode.RightArrow))

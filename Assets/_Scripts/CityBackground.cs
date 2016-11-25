@@ -9,6 +9,9 @@ public class CityBackground : MonoBehaviour
     public int blockCtr = 10;
     public GameObject cityBlock;
 
+    public int min = 0;
+    public int max = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -21,7 +24,7 @@ public class CityBackground : MonoBehaviour
 
                 cb.GetComponent<CityBackground>().starter = false;
                 cb.GetComponent<CityBackground>().special = true;
-                cb.GetComponent<CityBackground>().blockCtr = Random.Range(1, 20);
+                cb.GetComponent<CityBackground>().blockCtr = Random.Range(min, max);
             }
         }
  
@@ -29,7 +32,11 @@ public class CityBackground : MonoBehaviour
         {
             for (int i = 1; i < blockCtr; i++)
             {
-                Instantiate(cityBlock, transform.position + new Vector3(0, i * 2, 0), transform.rotation);
+                GameObject cb2 = Instantiate(cityBlock, transform.position + new Vector3(0, i * 2, 0), transform.rotation) as GameObject;
+
+                if (Random.Range(0, 12) == 2)
+                    cb2.GetComponent<CityBlock>().colorRand = true;
+
             }
         }
     }

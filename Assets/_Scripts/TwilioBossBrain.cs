@@ -12,8 +12,10 @@ public class TwilioBossBrain : MonoBehaviour
     public float ringSpeed = 20.0f;
 
     MeshRenderer twBulletRend;
+    public bool chargeBullet = false;
 
-    public bool ringHoming =false;
+    public Color originalEmissionColor;
+    public Color newEmissionColor;
 
     void Awake()
     {
@@ -22,16 +24,17 @@ public class TwilioBossBrain : MonoBehaviour
 
     IEnumerator ShootWait(float time)
     {
-        yield return new WaitForSeconds(time);
-        twBulletRend.material.color = Color.yellow;
+        yield return new WaitForSeconds(time*2);
+        RingLooker.S.homing = true;
+        chargeBullet = true;
 
         yield return new WaitForSeconds(time);
-        ringHoming = true;
+        twBullet.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        twBullet.transform.GetChild(0).GetComponent<ParticleSystemRenderer>().material = twBulletRend.material;
 
-        yield return new WaitForSeconds(time);
         twBullet.transform.parent = null;
-        twBullet.GetComponent<Rigidbody>().AddRelativeForce(0, 0, 10, ForceMode.Impulse);
-        ringHoming = false;
+        twBullet.GetComponent<Rigidbody>().AddRelativeForce(0, 0, 13, ForceMode.Impulse);
+        RingLooker.S.homing = false;
     }
 
     // Use this for initialization
@@ -41,17 +44,26 @@ public class TwilioBossBrain : MonoBehaviour
         twBullet = outerRing.transform.GetChild(0).gameObject;
         twBulletRend = twBullet.GetComponent<MeshRenderer>();
 
-        //StartCoroutine(ShootWait(2));
+        StartCoroutine(ShootWait(4));
+
+        originalEmissionColor = twBulletRend.materials[0].GetColor("_EmissionColor");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ringHoming)
-            outerRing.transform.LookAt(PlayerMovement.S.transform.position);
+        if (RingLooker.S.homing == false)
+            outerRing.transform.Rotate(0, Time.deltaTime * ringSpeed, 0);
 
 
-        outerRing.transform.Rotate(0, Time.deltaTime * ringSpeed, 0);
+        if (chargeBullet)
+        {
+            //twBulletRend.material.color = Color.Lerp(twBulletRend.material.color, Color.white, Time.deltaTime * 1);
+
+            originalEmissionColor = Color.Lerp(originalEmissionColor, newEmissionColor, Time.deltaTime * 0.25f);
+
+            twBulletRend.materials[0].SetColor("_EmissionColor", originalEmissionColor);
+        }
     }
 
 }

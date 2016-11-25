@@ -23,9 +23,10 @@ GameObject:
   - 135: {fileID: 135000012258029728}
   - 23: {fileID: 23000010431878376}
   - 54: {fileID: 54000011193608582}
+  - 108: {fileID: 108000012008409064}
   m_Layer: 0
   m_Name: playerBullet
-  m_TagString: Untagged
+  m_TagString: playerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011398017424}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.428, y: 0.167, z: 0}
+  m_LocalPosition: {x: 0.43, y: -2.39421, z: 0.074777484}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -92,8 +93,42 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 8
+  m_CollisionDetection: 1
+--- !u!108 &108000012008409064
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011398017424}
+  m_Enabled: 1
+  serializedVersion: 7
+  m_Type: 2
+  m_Color: {r: 0.051470578, g: 1, b: 1, a: 1}
+  m_Intensity: 7.22
+  m_Range: 1.5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 4.3
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!135 &135000012258029728
 SphereCollider:
   m_ObjectHideFlags: 1

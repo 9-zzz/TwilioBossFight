@@ -108,3 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f41dce21b42224da9791157d12429e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+  newEmissionColor: {r: 0.034482718, g: 1, b: 0, a: 0}
+  colorRand: 0
