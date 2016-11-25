@@ -10,6 +10,7 @@ public class PlayerShoot : MonoBehaviour
     public float shootSpeed;
 
     ParticleSystem spps;
+    public AudioClip shootSound;
 
     // Use this for initialization
     void Start()
@@ -22,6 +23,8 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetKeyDown(shootKey))
         {
+            AudioSource.PlayClipAtPoint(shootSound, transform.position);
+
             spps.Play();
 
             var pb = Instantiate(playerBullet, transform.position, transform.rotation) as GameObject;

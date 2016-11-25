@@ -16,4 +16,17 @@ public class TwBullet : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "playerBullet")
+        {
+            Destroy(col.gameObject);
+        }
+
+        if (col.gameObject.tag == "Player")
+        {
+            PlayerHealth.S.hurt();
+        }
+    }
+
 }

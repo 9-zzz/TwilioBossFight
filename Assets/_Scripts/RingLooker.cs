@@ -8,6 +8,8 @@ public class RingLooker : MonoBehaviour
 
     public static RingLooker S;
 
+    public AudioClip deflectSound;
+
     void Awake()
     {
         S = this;
@@ -40,7 +42,17 @@ public class RingLooker : MonoBehaviour
     {
         if (col.gameObject.tag == "playerBullet")
         {
+            AudioSource.PlayClipAtPoint(deflectSound, transform.position);
+
             col.gameObject.GetComponent<Rigidbody>().AddForce((col.gameObject.transform.position - transform.position) * 7, ForceMode.Impulse);
+        }
+
+        if (col.gameObject.tag == "Player")
+        {
+            PlayerHealth.S.hurt();
+
+            col.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            col.gameObject.GetComponent<Rigidbody>().AddForce((col.gameObject.transform.position - transform.position) * 10, ForceMode.Impulse);
         }
     }
 
